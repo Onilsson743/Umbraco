@@ -1,0 +1,14 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models
+
+
+ <!-- Related Buisnesses section -->
+<div class="container related-buisnesses">
+    @{
+        var images = Model.Value<IEnumerable<MediaWithCrops>>("relatedBrandImages");
+        foreach (var image in images)
+        {
+            <img src="@image.MediaUrl()" alt="@image.Value("alt")">
+        }
+    }
+</div>

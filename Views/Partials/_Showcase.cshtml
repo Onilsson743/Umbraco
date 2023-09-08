@@ -1,0 +1,25 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models
+
+<!-- Header -->
+<header class="header ">
+    <div class="container">
+        <div class="left-text">
+            <h1>@Model.Value("showcaseTitle")</h1>
+            <p>@Model.Value("showcaseDescription")</p>
+            <span class="header-buttons">
+                <button class="button-theme">@Model.Value("showcaseButtonText") <i class="bi bi-arrow-up-right"></i></button>
+                <button class="button-theme">Learn More <i class="bi bi-arrow-up-right"></i></button>
+            </span>
+        </div>
+        <div class="header-image">
+            @{
+                var image = Model.Value<MediaWithCrops>("showcaseImage");
+                if (image != null)
+                {
+                    <img src="@image.MediaUrl()" alt="@image.Value("alt")">
+                }
+            }
+        </div>
+    </div>
+</header>

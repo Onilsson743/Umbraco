@@ -1,0 +1,79 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+<!-- Footer section -->
+<footer >
+    <div class="container upper-section">
+        <div class="company-info">
+            <img src="/images/logotypes/logotype-white.svg" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat obcaecati voluptas voluptates! Voluptates laborum nam ratione minus necessitatibus, iure praesentium.</p>
+        </div>
+        <div class="links-component">
+            <h5>Company</h5>
+            @{
+                if (Model.Value<string[]>("companyLinks").Length > 0)
+                {
+                    
+                    @foreach (var item in Model.Value<string[]>("companyLinks"))
+                    {
+                        <a href="/@item">@item</a>
+                    }
+                    
+                }
+            }
+        </div>
+        <div class="links-component">
+            <h5>Help</h5>
+             @{
+                if (Model.Value<string[]>("helpLinks").Length > 0)
+                {
+                    
+                    @foreach (var item in Model.Value<string[]>("helpLinks"))
+                    {
+                        <a href="/@item">@item</a>
+                    }
+                    
+                }
+            }
+        </div>
+        <div class="links-component">
+            <h5>Resources</h5>
+             @{
+                if (Model.Value<string[]>("resourcesLinks").Length > 0)
+                {
+                    
+                    @foreach (var item in Model.Value<string[]>("resourcesLinks"))
+                    {
+                        <a href="/@item">@item</a>
+                    }
+                    
+                }
+            }
+        </div>
+        @{
+            if (Model.Value<string[]>("otherLinks") != null) {
+                if (Model.Value<string[]>("otherLinks").Length > 0)
+                {
+                <div class="links-component">
+            
+                    <h5>Link</h5>
+                    @foreach (var item in Model.Value<string[]>("otherLinks"))
+                    {
+                        <a href="/@item">@item</a>
+                    }
+                </div>
+                }
+            }
+        }
+       
+    </div>
+    <hr>
+    <div class="container lower-section">
+        <p>© @DateTime.Now.Year Crito - Consulting Company Inc. All Rights Reserved.</p>
+
+        <span class="social-media-links">
+            <p>
+                social media here
+            </p>
+        </span>
+    </div>
+</footer>
