@@ -2,29 +2,30 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 
 
-<!-- articles and news section -->
-    <div class="article-news-section container d-none">
-        <h6 class="theme-colour-orange">Article & News</h6>
-        <div class="header-and-button">
-            <h1>Get Every Single Articles & News</h1>
-            <button class="button-theme-transparent">Browse Articles <i class="bi bi-arrow-up-right"></i></button>
-        </div>
+
+<div class="article-news-section container">
+    <h6 class="theme-colour-orange">Article & News</h6>
+    <div class="header-and-button">
+        <h1>Get Every Single Articles & News</h1>
+        <button class="button-theme-transparent">Browse Articles <i class="bi bi-arrow-up-right"></i></button>
+    </div>
         
         
-        <!-- Article Cards -->
-        <div class="article-cards">
-            <h1>Test</h1>
+    <!-- Article Cards -->
+    <div class="article-cards">
+
+
         @{
-        	var selection = Umbraco.Content(Guid.Parse("4e62a189-459f-4904-bfdd-e4db646fa552"))
+            var selection = Umbraco.Content(Guid.Parse("4e62a189-459f-4904-bfdd-e4db646fa552"))
             .ChildrenOfType("articleItem")
             .Where(x => x.IsVisible())
-            .OrderByDescending(x => x.CreateDate);
+            .OrderBy(x => x.CreateDate);
         }
         
-        	@foreach (var item in selection)
-        	{
-            var articleImage = Model.Value<MediaWithCrops>("articleImage");
-        	<div  class=" article-card-medium">
+        @foreach (var item in selection)
+        {
+            var articleImage = item.Value<MediaWithCrops>("articleImage");
+            <div  class=" article-card-medium">
                 <div  class="image-section">
                     @if (articleImage != null)
                     {
@@ -41,13 +42,7 @@
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero.</p>
                 </div>     
             </div>
-        		<li>
-        			<a href="@item.Url()">@item.Name()</a>
-        		</li>
-        	}
-        
-
-
-        </div>
-       
+        }
     </div>
+       
+</div>
