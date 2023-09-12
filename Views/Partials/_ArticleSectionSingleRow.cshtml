@@ -24,6 +24,7 @@
         
         @foreach (var item in selection)
         {
+            @Html.Partial("_MediumArticleCard", item)
             var articleImage = item.Value<MediaWithCrops>("articleImage");
             <div  class=" article-card-medium">
                 <div  class="image-section">

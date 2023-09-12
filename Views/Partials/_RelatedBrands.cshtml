@@ -5,7 +5,7 @@
  <!-- Related Buisnesses section -->
 <div class="container related-buisnesses">
     @{
-        var images = Model.Value<IEnumerable<MediaWithCrops>>("relatedBrandImages");
+        var images = Model.Value<IEnumerable<MediaWithCrops>>("relatedBrandsImages");
         foreach (var image in images)
         {
             <img src="@image.MediaUrl()" alt="@image.Value("alt")">

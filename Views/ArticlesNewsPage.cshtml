@@ -1,0 +1,22 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ArticlesNewsPage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Main.cshtml";
+}
+
+<div>
+    @{
+    	var selection = Umbraco.Content(Guid.Parse("9e1b266c-ec4b-4a3d-be74-65ee61835d46"))
+        .ChildrenOfType("articleItem")
+        .Where(x => x.IsVisible())
+        .OrderBy(x => x.CreateDate);
+    }
+
+    
+	@foreach (var item in selection)
+	{
+	
+	    @Html.Partial("_MediumArticleCard", item)
+	}
+</div>

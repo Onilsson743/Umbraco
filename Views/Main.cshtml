@@ -1,0 +1,367 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="description" content="Tutorial">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Tutorial</title>
+   <script src="https://kit.fontawesome.com/41c8b474e2.js" crossorigin="anonymous"></script>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+   <link  href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+    @await Html.PartialAsync("_Navbar")
+
+    @RenderBody()
+
+    <!-- Features -->
+    <div class="features-section ">
+        <div class="container">
+            <div class="left-text">
+                <h6>Features</h6>
+                <h1>Our Accounting is trusted by thousand of companies</h1>
+                <button class="button-theme">Learn More <i class="bi bi-arrow-up-right"></i></button>
+            </div>
+            <div class="right-items">
+                <div class="info-item">
+                    <i class="fa-solid fa-handshake"></i>
+                    <h5>Business Advice</h5>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <div class="info-item">
+                    <i class="bi bi-lightbulb"></i>
+                    <h5>Business Advice</h5>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <div class="info-item">
+                    <i class="bi bi-graph-up-arrow"></i>
+                    <h5>Business Advice</h5>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <div class="info-item">
+                    <i class="bi bi-building-gear"></i>
+                    <h5>Business Advice</h5>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>        
+        </div>
+    </div>
+
+    <!-- About company section -->
+    <div class="about-section container ">
+        <div class="left-side">
+            <img src="Images/daria-pimkina-tYaccl19A3Q-unsplash.jpg" alt="">
+        </div>
+        <div class="right-side">
+            <h6 class="theme-colour-orange">About Company</h6>
+            <h1>We Are Business Consulting & Credit Repair Experts</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam officiis quas assumenda esse obcaecati? Ex esse error voluptates iure vel totam eos.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis esse quasi incidunt adipisci accusantium libero provident voluptate amet.</p>
+            <span class="buttons">
+                <button class="button-theme">Learn More <i class="bi bi-arrow-up-right"></i></button>
+                <button href="" class="button-theme-transparent"><div class="play-button"><i class="bi bi-play-fill"></i></div> Intro Video</button>
+            </span>
+            
+        </div>
+    </div>
+
+     <!-- Services Section -->
+     <div class="services-section ">
+        <div class="container">
+            <h6 class="theme-colour-orange">Our Services</h6>
+            <h1>We Provide The Best Service For Consulting</h1>
+            <div class="info-links">
+                <div class="information-link-card">
+                    <div class="horizontal-line"></div>
+                    <h3>Business Advice</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis in nam possimus.</p>
+                    <button class="arrow-button"><i class="bi bi-arrow-right-short"></i></button>
+                </div>
+                <div class="information-link-card">
+                    <div class="horizontal-line"></div>
+                    <h3>Business Advice</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis in nam possimus.</p>
+                    <button class="arrow-button"><i class="bi bi-arrow-right-short"></i></button>
+                </div>
+                <div class="information-link-card">
+                    <div class="horizontal-line"></div>
+                    <h3>Business Advice</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis in nam possimus.</p>
+                    <button class="arrow-button"><i class="bi bi-arrow-right-short"></i></button>
+                </div>
+                <div class="information-link-card">
+                    <div class="horizontal-line"></div>
+                    <h3>Business Advice</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis in nam possimus.</p>
+                    <button class="arrow-button"><i class="bi bi-arrow-right-short"></i></button>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <button class="button-theme-transparent">Browse Services <i class="bi bi-arrow-up-right"></i></button>
+            </div>            
+        </div>
+    </div>
+
+     <!-- Why choose us section -->
+     <div class="choose-us-section  ">
+        <div class="container">
+            <div class="left-text">
+                <h6 class="theme-colour-orange">Why Choose Us</h6>
+                <h1>Why We Are The Best Business Consulting Agency</h1>
+                <div class="info-item">
+                    <div class="icon"><i class="bi bi-hand-thumbs-up"></i></div>
+                    <div>
+                        <h5>Process Excellence</h5>
+                        <p>Lorem, ipsum dolor sit amet consectetur.</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="icon"><i class="bi bi-hand-thumbs-up"></i></span>
+                    <div>
+                        <h5>Process Excellence</h5>
+                        <p>Lorem, ipsum dolor sit amet consectetur.</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="icon"><i class="bi bi-hand-thumbs-up"></i></span>
+                    <div>
+                        <h5>Process Excellence</h5>
+                        <p>Lorem, ipsum dolor sit amet consectetur.</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="icon"><i class="bi bi-hand-thumbs-up"></i></span>
+                    <div>
+                        <h5>Process Excellence</h5>
+                        <p>Lorem, ipsum dolor sit amet consectetur.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="right-image">
+                <img src="/images/amy-hirschi-K0c8ko3e6AA-unsplash.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- Studies section -->
+    <div class="studies-section container ">
+        <h6 class="theme-colour-orange">Project & Case Studies</h6>
+        <h1>Let´s Looks Our Global Projects</h1>
+        <div class="studies-articles">
+            <div class="article-card-image">
+                <div class="image-container">
+                    <img src="/images/adeolu-eletu-E7RLgUjjazc-unsplash.jpg" alt="">
+                </div>                
+                <h5>Grow your business</h5>
+                <hr>
+                <button>Read More <i class="bi bi-arrow-up-right"></i></button>
+            </div>
+            <div class="article-card-image">
+                <div class="image-container">
+                    <img src="/images/marek-levak-zANXcXyByos-unsplash.jpg" alt="">
+                </div>  
+                <h5>Grow your business</h5>
+                <hr>
+                <button>Read More <i class="bi bi-arrow-up-right"></i></button>
+            </div>
+            <div class="article-card-image">
+                <div class="image-container">
+                    <img src="/images/oli-dale-xjSkI_seiZY-unsplash.jpg" alt="">
+                </div>  
+                <h5>Grow your business</h5>
+                <hr>
+                <button>Read More <i class="bi bi-arrow-up-right"></i></button>
+            </div>
+            <div class="article-card-image">
+                <div class="image-container">
+                    <img src="/images/carlos-muza-hpjSkU2UYSU-unsplash.jpg" alt="">
+                </div>  
+                <h5>Grow your business</h5>
+                <hr>
+                <button>Read More <i class="bi bi-arrow-up-right"></i></button>
+            </div>
+        </div>
+        <button class="button-theme">All Recent Projects <i class="bi bi-arrow-up-right"></i></button>
+    </div>
+
+    <!-- Employees info section -->
+    <div class="employee-info-section">
+        <div class="container">
+            <h6 class="theme-colour-orange font-bold">Employees info section</h6>
+            <div class="header-text">
+                <h1 class="font-bold">Experience Team Members</h1>
+                <button class="button-theme-transparent">Browse Team <i class="bi bi-arrow-up-right"></i></button>
+            </div>
+            <div class="employee-profiles">
+                <div class="employee-card">
+                    <div class="employee-img">
+                        <img src="images/christina-wocintechchat-com-SJvDxw0azqw-unsplash.jpg" alt="">
+                    </div>
+                    <h5 class="font-bold">Kristine Palmer</h5>
+                    <p>Chef Operation Officer</p>
+                </div>
+                <div class="employee-card">
+                    <div class="employee-img">
+                        <img src="images/itay-verchik-6ZKGBzrDd3I-unsplash.jpg" alt="">
+                    </div>
+                    <h5  class="font-bold">Mark Aubri</h5>
+                    <p>Senior Consultant</p>
+                </div>
+                <div class="employee-card">
+                    <div class="employee-img">
+                        <img src="images/christina-wocintechchat-com-Zpzf7TLj_gA-unsplash.jpg" alt="">
+                    </div>
+                    <h5 class="font-bold">Kimberly Hansen</h5>
+                    <p>Senior Consultant</p>
+                </div>
+                <div class="employee-card">
+                    <div class="employee-img">
+                        <img src="images/the-connected-narrative-N8lRH2uxih4-unsplash.jpg" alt="">
+                    </div>
+                    <h5 class="font-bold">Kristine Palmer</h5>
+                    <p>Chef Operation Officer</p>
+                </div>
+            </div>
+        </div>
+        <!-- Reviews section -->
+        <div class="reviews-section">
+            <div class="container">
+                <p class="theme-colour-orange font-bold">Testimonial</p>
+                <h1 class="font-bold">What Our Client Says</h1>
+
+                <div class="review-cards">
+                    <div class="review-card">
+                        <p class="theme-colour-orange">*****</p>
+                        <p class="review-text">"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium libero, ad dignissimos velit qui, dolorum obcaecati cum saepe nesciunt nemo eligendi numquam voluptate"</p>
+                        
+                        <div class="person-info">
+                            <div class="profile-image">
+                                <img src="images/vince-veras-AJIqZDAUD7A-unsplash.jpg" alt="">
+                            </div>
+                            <div class="profile-info">
+                                <h4>Cassandra Warren</h4>
+                                <h6 class="theme-colour-orange">Business Manager, Dorfus</h6>
+                            </div>
+                        </div>
+                    </div>  
+
+                    <div class="review-card">
+                        <p class="theme-colour-orange">*****</p>
+                        <p class="review-text">"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium libero, ad dignissimos velit qui, dolorum obcaecati cum saepe nesciunt nemo eligendi numquam voluptate"</p>
+                        
+                        <div class="person-info">
+                            <div class="profile-image">
+                                <img src="images/christina-wocintechchat-com-PlikkWB79qs-unsplash.jpg" alt="">
+                            </div>
+                            <div class="profile-info">
+                                <h4>Amanda Tulling</h4>
+                                <h6 class="theme-colour-orange">Senior Developer, Square</h6>
+                            </div>
+                        </div>
+                    </div>  
+
+                    <div class="review-card">
+                        <p class="theme-colour-orange">*****</p>
+                        <p class="review-text">"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium libero, ad dignissimos velit qui, dolorum obcaecati cum saepe nesciunt nemo eligendi numquam voluptate"</p>
+                        
+                        <div class="person-info">
+                            <div class="profile-image">
+                                <img src="images/joseph-gonzalez-iFgRcqHznqg-unsplash.jpg" alt="">
+                            </div>
+                            <div class="profile-info">
+                                <h4>Jack McDogglas</h4>
+                                <h6 class="theme-colour-orange">Key Account Manager, Gobona</h6>
+                            </div>
+                        </div>
+                    </div>                      
+                </div>
+                <button class="button-theme">All Reviews <i class="bi bi-arrow-up-right"></i></button>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- articles and news section -->
+    <div class="article-news-section container">
+        <h6 class="theme-colour-orange">Article & News</h6>
+        <div class="header-and-button">
+            <h1>Get Every Single Articles & News</h1>
+            <button class="button-theme-transparent">Browse Articles <i class="bi bi-arrow-up-right"></i></button>
+        </div>
+        
+        
+        <!-- Article Cards -->
+        <div class="article-cards">
+            <div  class=" article-card-medium">
+                <div  class="image-section">
+                    <img src="./images/linkedin-sales-solutions-Mis5fyJi7Q0-unsplash.jpg" alt="" >
+                    <div  class="article-date">
+                        <h5>25</h5>
+                        <p>Mar</p>
+                    </div>
+                </div>
+                <div class="description">
+                    <p >Buisness</p>
+                    <h5>How To Use Digitalization In The Classroom</h5>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero.</p>
+                </div>     
+            </div>
+            <div  class=" article-card-medium">
+                <div  class="image-section">
+                    <img src="./images/linkedin-sales-solutions-Mis5fyJi7Q0-unsplash.jpg" alt="" >
+                    <div  class="article-date">
+                        <h5>25</h5>
+                        <p>Mar</p>
+                    </div>
+                </div>
+                <div class="description">
+                    <p >Buisness</p>
+                    <h5>How To Use Digitalization In The Classroom</h5>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero.</p>
+                </div>  
+            </div>
+            <div  class=" article-card-medium">
+                <div  class="image-section">
+                    <img src="./images/linkedin-sales-solutions-Mis5fyJi7Q0-unsplash.jpg" alt="" >
+                    <div  class="article-date">
+                        <h5>25</h5>
+                        <p>Mar</p>
+                    </div>
+                </div>
+                <div class="description">
+                    <p >Buisness</p>
+                    <h5>How To Use Digitalization In The Classroom</h5>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero.</p>
+                </div>  
+            </div>
+            <div  class=" article-card-medium">
+                <div  class="image-section">
+                    <img src="./images/linkedin-sales-solutions-Mis5fyJi7Q0-unsplash.jpg" alt="" >
+                    <div  class="article-date">
+                        <h5>25</h5>
+                        <p>Mar</p>
+                    </div>
+                </div>
+                <div class="description">
+                    <p >Buisness</p>
+                    <h5>How To Use Digitalization In The Classroom</h5>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero.</p>
+                </div>  
+            </div>
+        </div>
+       
+    </div>
+
+    
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+   <script src="/Scripts/script.js"></script>
+</body>
+</html>

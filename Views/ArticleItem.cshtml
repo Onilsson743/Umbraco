@@ -2,17 +2,10 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ArticleItem>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-	Layout = "_Layout.cshtml";
+	Layout = null;
 }
 
 <div  class=" article-card-medium">
-    <div  class="image-section">
-        <img src="./images/linkedin-sales-solutions-Mis5fyJi7Q0-unsplash.jpg" alt="" >
-        <div  class="article-date">
-            <h5>25</h5>
-            <p>Mar</p>
-        </div>
-    </div>
     <div class="description">
         <p >@Model.Value("articleCategory")</p>
         <h5>@Model.Value("articleHeader")</h5>

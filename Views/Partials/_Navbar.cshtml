@@ -2,41 +2,45 @@
 @{
     
 }
+ <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container" id="navigation-dropdown-menu"> 
+            <div class="logo">
+                <img src="/Images/logotype.svg" alt="Crito">
+            </div> 
 
-<!-- Navbar -->
-<nav class="navbar ">
-    <div class="container">
-        <span class="logo">
-            <img src="/images/logotypes/logotype.svg" alt="Crito">
-        </span>
-
-        <div class="navbar-links">
-            <div class="upper-links">
-                <div class="left-links">
-                    <a href=""><i class="bi bi-telephone-forward"></i>+46 (8) 123 470 50</a>
-                    <span class="vertical-line-small"></span>
-                    <a href="" ><i class="bi bi-envelope-at"></i></i>info@crito.com</a>
-                    <span class="vertical-line-small"></span>
-                    <a href="" ><i class="bi bi-geo-alt"></i>Sveavägen 31, 111 34 STOCKHOLM</a>
+            <button onclick="openMobileMenu()" class="mobile-menu"><i class="bi bi-list"></i></button>
+            <div class="navbar-links" >                
+                <div class="upper-links">
+                    <div class="contact-links">
+                        <ul>
+                            <li><a href=""><i class="bi bi-telephone-forward"></i>+46 (8) 123 470 50</a></li>
+                            <span class="vertical-line-small"></span>
+                            <li><a href="" ><i class="bi bi-envelope-at"></i></i>info@crito.com</a></li>
+                            <span class="vertical-line-small"></span>
+                            <li><a href="" ><i class="bi bi-geo-alt"></i>Sveavägen 31, 111 34 STOCKHOLM</a></li>
+                        </ul>                        
+                    </div>
+                    <div class="social-media-links">
+                        <a href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+                        <a href="https://twitter.com/" target="_blank"><i class="bi bi-twitter"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.linkedin.com/" target="_blank"><i class="bi bi-linkedin"></i></a>
+                    </div>
                 </div>
-                <div class="right-links">
-                    <a href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
-                    <a href="https://twitter.com/" target="_blank"><i class="bi bi-twitter"></i></a>
-                    <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
-                    <a href="https://www.linkedin.com/" target="_blank"><i class="bi bi-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="lower-links">
-                <div class="left-links">
-                    <a href="">Home</a>
-                    <a href="">Service</a>
-                    <a href="">News</a>
-                    <a href="">Contact</a>
-                </div>
-                <div class="right-links">
+                <div class="local-links">
+                    <div class="left-links">
+                        <ul>
+                            <li><a href="">Home</a></li>
+                            <li><a href="">Service</a></li>
+                            <li><a href="">News</a></li>
+                            <li><a href="">Contact</a></li>
+                        </ul>
+                    </div>
+                    
                     <button class="button-theme">Login <i class="bi bi-arrow-up-right"></i></button>
+                    
                 </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
