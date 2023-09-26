@@ -7,3 +7,35 @@
 
 @await Html.PartialAsync("_Showcase")
 @await Html.PartialAsync("_RelatedBrands")
+
+<!-- Features -->
+<div class="features-section">
+    <div class="container">
+        <div class="left-text">
+            <h6>Features</h6>
+            <h1>@Model.Value("companyFeaturesTitle")</h1>
+            <a href="@Model.Value("companyFeaturesButtonLink")" class="button-theme">Learn More <i class="bi bi-arrow-up-right"></i></a>
+        </div>
+        <div class="right-items">
+        	@Html.GetBlockListHtml(Model.CompanyFeature)
+        </div>        
+    </div>
+</div>
+@await Html.PartialAsync("_AboutCompanySection")
+
+@await Html.PartialAsync("_ArticleSectionSingleRow")
+
+
+ <!-- Services Section -->
+ <div class="services-section ">
+    <div class="container">
+        <h6 class="theme-colour-orange">Our Services</h6>
+        <h1>@Model.Value("ourServicesHeading")</h1>
+        <div class="info-links">
+            @Html.GetBlockListHtml(Model.CompanyService)
+        </div>
+        <div style="text-align: center;">
+            <a href="@Model.Value("ourServicesURL")" class="button-theme-transparent">Browse Services <i class="bi bi-arrow-up-right"></i></a>
+        </div>            
+    </div>
+</div> 

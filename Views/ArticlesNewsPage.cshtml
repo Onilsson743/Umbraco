@@ -4,19 +4,65 @@
 @{
 	Layout = "Main.cshtml";
 }
+@await Html.PartialAsync("_Breadcrumb")
+ 
+<!-- article and news grid -->
+<div class="articles-and-news-section">
+    <div class="article-grid container">
+        @{
+            var selection = Umbraco.Content(Guid.Parse("9e1b266c-ec4b-4a3d-be74-65ee61835d46")).ChildrenOfType("articleItem").Where(x => x.IsVisible()).OrderBy(x => x.CreateDate).ToList();
+            var articlesPerPage = 9;
+            double articles = selection.Count;
+            var pages = Math.Ceiling((articles / articlesPerPage) - 1);
+            var currentPage = 1;
+            if(!int.TryParse(Context.Request.Query["page"], out currentPage))
+            {
+                currentPage = 1;    
+            }
 
-<div>
-    @{
-    	var selection = Umbraco.Content(Guid.Parse("9e1b266c-ec4b-4a3d-be74-65ee61835d46"))
-        .ChildrenOfType("articleItem")
-        .Where(x => x.IsVisible())
-        .OrderBy(x => x.CreateDate);
-    }
+            
+        }
+        
+        @if (selection != null) {
+            var selectedArticles = selection.Skip((currentPage - 1) * articlesPerPage).Take(articlesPerPage);
+            @foreach (var item in selectedArticles)
+            {
+                @Html.Partial("_MediumArticleCard", item)
+            }
+        }
+        
+    </div>
 
-    
-	@foreach (var item in selection)
-	{
-	
-	    @Html.Partial("_MediumArticleCard", item)
-	}
+    <div  class="page-selector">
+
+        @{
+            if(currentPage > 1)
+            {
+                <a href="?page=@(currentPage - 1)"><i class="bi bi-chevron-left"></i></a>
+            }
+        }
+        @{
+            if(pages > 0)
+            {
+                for (int i = 1; i <= pages + 1; i++)
+                {
+                    @if (i == currentPage)
+                    {
+                        <a class="active" href="?page=@i">@i</a>
+                    } else
+                    {
+                        <a href="?page=@i">@i</a>
+                    }
+                        
+                }
+            }            
+        }
+
+        @{
+            if (currentPage <= pages && pages > 1)
+            {
+                <a href="?page=@(currentPage + 1)"><i class="bi bi-chevron-right"></i></a>
+            }
+        }
+    </div>
 </div>

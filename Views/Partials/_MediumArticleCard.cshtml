@@ -22,15 +22,15 @@
 }
 
 
-<div  class=" article-card-medium">
+<a href="@Model.Url()" class=" article-card-medium">
     @{
         var articleImage = Model.Value<MediaWithCrops>("articleImage");
     }
     <div  class="image-section">
         <img src="@articleImage.Url()" alt="" >
         <div  class="article-date">
-            <h5>25</h5>
-            <p>Mar</p>
+            <h5>@Model.CreateDate.ToString("dd")</h5>
+            <p>@Model.CreateDate.ToString("MMM")</p>
         </div>
     </div>
     <div class="description">
@@ -38,5 +38,4 @@
         <h5>@Model.Value("articleTitle")</h5>
         <p>@shortText</p>
     </div>  
-    <a href="@Model.Url()">Click ME!</a>
-</div>
+</a>

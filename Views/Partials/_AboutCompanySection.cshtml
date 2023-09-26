@@ -1,0 +1,32 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models
+
+
+
+<!-- About company section -->
+<div class="about-section container ">
+    <div class="left-side">
+        @{
+            var image = Model.Value<MediaWithCrops>("aboutCompanyProfileImage");
+            if (image != null)
+            {
+                <img src="@image.Url()" alt="@image.Value("alt")" />
+            }
+        }
+
+        <div class="image-text-box">
+            <h5><strong>@Model.Value("aboutCompanyImageProfilename"), </strong> @Model.Value("aboutCompanyImageProfilenamePosition")</h5>
+            <p>"@Model.Value("aboutCompanyImageProfileText")"</p>
+        </div>
+    </div>
+    <div class="right-side">
+        <h6 class="theme-colour-orange">About Company</h6>
+        <h1>@Model.Value("aboutCompanyHeader")</h1>
+        @Model.Value("aboutCompanyText")
+        <span class="buttons">
+            <a href="@Model.Value("aboutCompanyButtonURL")" class="button-theme">Learn More <i class="bi bi-arrow-up-right"></i></a>
+            <a href="@Model.Value("aboutCompanyVideoURL")" target="_blank" class="button-theme-transparent"><div class="play-button"><i class="bi bi-play-fill"></i></div> Intro Video</a>
+        </span>
+        
+    </div>
+</div>

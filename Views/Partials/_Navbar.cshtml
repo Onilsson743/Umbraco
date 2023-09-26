@@ -1,46 +1,70 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
-@{
-    
-}
- <!-- Navbar -->
-    <nav class="navbar">
-        <div class="container" id="navigation-dropdown-menu"> 
-            <div class="logo">
-                <img src="/Images/logotype.svg" alt="Crito">
-            </div> 
+@using Umbraco.Cms.Core
+@using Umbraco.Cms.Core.Models.PublishedContent
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Extensions
 
-            <button onclick="openMobileMenu()" class="mobile-menu"><i class="bi bi-list"></i></button>
-            <div class="navbar-links" >                
-                <div class="upper-links">
-                    <div class="contact-links">
-                        <ul>
-                            <li><a href=""><i class="bi bi-telephone-forward"></i>+46 (8) 123 470 50</a></li>
-                            <span class="vertical-line-small"></span>
-                            <li><a href="" ><i class="bi bi-envelope-at"></i></i>info@crito.com</a></li>
-                            <span class="vertical-line-small"></span>
-                            <li><a href="" ><i class="bi bi-geo-alt"></i>Sveavägen 31, 111 34 STOCKHOLM</a></li>
-                        </ul>                        
-                    </div>
-                    <div class="social-media-links">
-                        <a href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
-                        <a href="https://twitter.com/" target="_blank"><i class="bi bi-twitter"></i></a>
-                        <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
-                        <a href="https://www.linkedin.com/" target="_blank"><i class="bi bi-linkedin"></i></a>
-                    </div>
+@inject IPublishedValueFallback PublishedValueFallback
+@inject IPublishedUrlProvider PublishedUrlProvider
+@*
+    This snippet displays a list of links of the pages immediately under the top-most page in the content tree.
+    This is the home page for a standard website.
+    It also highlights the current active page/section in the navigation with the CSS class "current".
+*@
+
+@{ 
+    var selection = Model.Root().Children.Where(x => x.IsVisible(PublishedValueFallback)).ToArray(); 
+    var site = Model.Root();
+}
+
+
+ <!-- Navbar -->
+<nav class="navbar">
+    <div class="container" id="navigation-dropdown-menu"> 
+        <div class="logo">
+            <img src="/images/logotypes/logotype.svg" alt="Crito">
+        </div> 
+
+        <button onclick="openMobileMenu()" class="mobile-menu"><i class="bi bi-list"></i></button>
+        <div class="navbar-links" >                
+            <div class="upper-links">
+                <div class="contact-links">
+                    <ul>
+                        <li><a href=""><i class="bi bi-telephone-forward"></i>+46 (8) 123 470 50</a></li>
+                        <span class="vertical-line-small"></span>
+                        <li><a href="" ><i class="bi bi-envelope-at"></i></i>info@crito.com</a></li>
+                        <span class="vertical-line-small"></span>
+                        <li><a href="" ><i class="bi bi-geo-alt"></i>Sveavägen 31, 111 34 STOCKHOLM</a></li>
+                    </ul>                        
                 </div>
-                <div class="local-links">
-                    <div class="left-links">
-                        <ul>
-                            <li><a href="">Home</a></li>
-                            <li><a href="">Service</a></li>
-                            <li><a href="">News</a></li>
-                            <li><a href="">Contact</a></li>
-                        </ul>
-                    </div>
-                    
-                    <button class="button-theme">Login <i class="bi bi-arrow-up-right"></i></button>
-                    
+                <div class="social-media-links">
+                    <a href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+                    <a href="https://twitter.com/" target="_blank"><i class="bi bi-twitter"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.linkedin.com/" target="_blank"><i class="bi bi-linkedin"></i></a>
                 </div>
             </div>
+            <div class="local-links">
+                <div class="left-links">
+                    @if (selection?.Length > 0)
+                    {
+                        <ul>
+                            <li>
+                                <a class="@(Model.Id == site.Id ? "active" : null)" href="@site.Url()">@site.Name</a>
+                            </li>
+                            @foreach (var item in selection)
+                            {
+                                <li class="@(item.IsAncestorOrSelf(Model) ? "active" : null)">
+                                    <a href="@item.Url(PublishedUrlProvider)">@item.Name</a>
+                                </li>
+                            }
+                        </ul>
+                    }
+                </div>
+                
+                <button class="button-theme">Login <i class="bi bi-arrow-up-right"></i></button>
+                
+            </div>
         </div>
-    </nav>
+    </div>
+</nav>

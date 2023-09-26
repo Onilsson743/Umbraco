@@ -10,13 +10,10 @@
         <button class="button-theme-transparent">Browse Articles <i class="bi bi-arrow-up-right"></i></button>
     </div>
         
-        
     <!-- Article Cards -->
     <div class="article-cards">
-
-
         @{
-            var selection = Umbraco.Content(Guid.Parse("4e62a189-459f-4904-bfdd-e4db646fa552"))
+            var selection = Umbraco.Content(Guid.Parse("9e1b266c-ec4b-4a3d-be74-65ee61835d46"))
             .ChildrenOfType("articleItem")
             .Where(x => x.IsVisible())
             .OrderBy(x => x.CreateDate);
@@ -25,24 +22,6 @@
         @foreach (var item in selection)
         {
             @Html.Partial("_MediumArticleCard", item)
-            var articleImage = item.Value<MediaWithCrops>("articleImage");
-            <div  class=" article-card-medium">
-                <div  class="image-section">
-                    @if (articleImage != null)
-                    {
-                    <img src="@articleImage.MediaUrl()" alt="@articleImage.Value("alt")">
-                    }
-                    <div  class="article-date">
-                        <h5>25</h5>
-                        <p>Mar</p>
-                    </div>
-                </div>
-                <div class="description">
-                    <p >@item.Value("articleCategory")</p>
-                    <h5>@item.Value("articleHeader")</h5>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero.</p>
-                </div>     
-            </div>
         }
     </div>
        
