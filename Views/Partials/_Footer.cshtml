@@ -8,68 +8,73 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat obcaecati voluptas voluptates! Voluptates laborum nam ratione minus necessitatibus, iure praesentium.</p>
         </div>
         <div class="links-component">
+            
+            
+            @{
+            	var footervalue = Umbraco.Content(Guid.Parse("ac4e64e4-838e-496d-93af-2496ad44708f"));
+            }
+
+
             <h5>Company</h5>
             @{
-                if (Model.Value<string[]>("companyLinks").Length > 0)
+                try
                 {
                     
-                    @foreach (var item in Model.Value<string[]>("companyLinks"))
+                    @foreach (var item in footervalue.Value<string[]>("companyLinks"))
                     {
                         <a href="/@item">@item</a>
                     }
                     
                 }
+                catch {}
             }
         </div>
         <div class="links-component">
             <h5>Help</h5>
              @{
-                if (Model.Value<string[]>("helpLinks").Length > 0)
+                try
                 {
                     
-                    @foreach (var item in Model.Value<string[]>("helpLinks"))
+                    @foreach (var item in footervalue.Value<string[]>("helpLinks"))
                     {
                         <a href="/@item">@item</a>
                     }
                     
                 }
+                catch {}
             }
         </div>
         <div class="links-component">
             <h5>Resources</h5>
              @{
-                if (Model.Value<string[]>("resourcesLinks").Length > 0)
+                try
                 {
                     
-                    @foreach (var item in Model.Value<string[]>("resourcesLinks"))
+                    @foreach (var item in footervalue.Value<string[]>("resourcesLinks"))
                     {
                         <a href="/@item">@item</a>
                     }
                     
                 }
+                catch {}
             }
         </div>
-        @{
-            if (Model.Value<string[]>("otherLinks") != null) {
-                if (Model.Value<string[]>("otherLinks").Length > 0)
+        <div class="links-component">
+          @{  
+            try {
+                <h5>Link</h5>
+                @foreach (var item in footervalue.Value<string[]>("otherLinks"))
                 {
-                <div class="links-component">
-            
-                    <h5>Link</h5>
-                    @foreach (var item in Model.Value<string[]>("otherLinks"))
-                    {
-                        <a href="/@item">@item</a>
-                    }
-                </div>
+                    <a href="/@item">@item</a>
                 }
             }
-        }
-       
+            catch {}
+            }
+        </div>
     </div>
     <hr>
     <div class="container lower-section">
         <p>© @DateTime.Now.Year Crito - Consulting Company Inc. All Rights Reserved.</p>
-
         <span class="social-media-links">
             <p>
                 social media here

@@ -15,6 +15,7 @@
 @{ 
     var selection = Model.Root().Children.Where(x => x.IsVisible(PublishedValueFallback)).ToArray(); 
     var site = Model.Root();
+	var globalSettings = Umbraco.Content(Guid.Parse("ac4e64e4-838e-496d-93af-2496ad44708f"));
 }
 
 
@@ -30,11 +31,11 @@
             <div class="upper-links">
                 <div class="contact-links">
                     <ul>
-                        <li><a href=""><i class="bi bi-telephone-forward"></i>+46 (8) 123 470 50</a></li>
+                        <li><a href=""><i class="bi bi-telephone-forward"></i>@globalSettings.Value("navbarContactPhoneNumber")</a></li>
                         <span class="vertical-line-small"></span>
-                        <li><a href="" ><i class="bi bi-envelope-at"></i></i>info@crito.com</a></li>
+                        <li><a href="" ><i class="bi bi-envelope-at"></i></i>@globalSettings.Value("navbarContactEmailAdress")</a></li>
                         <span class="vertical-line-small"></span>
-                        <li><a href="" ><i class="bi bi-geo-alt"></i>Sveavägen 31, 111 34 STOCKHOLM</a></li>
+                        <li><a href="" ><i class="bi bi-geo-alt"></i>@globalSettings.Value("navbarContactAdress")</a></li>
                     </ul>                        
                 </div>
                 <div class="social-media-links">
