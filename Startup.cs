@@ -1,9 +1,14 @@
+using CritoProject.Context;
+using Microsoft.Extensions.Configuration;
+using Umbraco.Extensions;
+
 namespace CritoProject
 {
     public class Startup
     {
         private readonly IWebHostEnvironment _env;
         private readonly IConfiguration _config;
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Startup" /> class.
@@ -34,7 +39,10 @@ namespace CritoProject
                 .AddWebsite()
                 .AddDeliveryApi()
                 .AddComposers()
+                
                 .Build();
+            
+            services.AddUmbracoEFCoreContext<DataContext>("Data Source=|DataDirectory|/Umbraco.sqlite.db;Cache=Shared;Foreign Keys=True;Pooling=True", "Microsoft.Data.Sqlite");
         }
 
         /// <summary>

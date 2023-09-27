@@ -12,76 +12,79 @@
 
 @{
         var articleImage = Model.Value<MediaWithCrops>("articleImage");
-    }
-    <!-- Article Full Page Section -->
-    <div class="article-full-detail container">
-        <div class="title-text">
-            <h1>@Model.Value("articleTitle")</h1>
-            <div class="article-details">
-                <p>@Model.CreateDate.ToString("MMM dd, yyyy")</p>
-                <span class="circle-seperator"></span>
-                <p>@Model.Value("articleCategory")</p>
-                <span class="circle-seperator"></span>
-                <p>@Model.CreatorName(UserService)</p>
-            </div>
-        </div>
-        <div class="article-content">
-            <div class="article-image">
-                <img src="@articleImage.Url()" alt="">
-            </div>
+}
 
-            <div class="article-text">
-                @Model.Value("articleContent")
-            </div>
-            
-            <div class="article-tags">
-                <a href="">Digitalization</a>
-                <a href="">IT</a>
-            </div>
-        </div>
-
-        <!-- Right Section -->
-        <div class="right-section">
-            <div  class="input-field">
-                <input type="text" placeholder="Type to search...">
-                <i class="bi bi-search"></i>
-            </div>
-
-            <div class="recent-posts">
-                <h4 class="title">Recent posts</h4>
-                <a href="" class="post">
-                    <h6>How To Blow Through Capital At An Incredible Rate</h6>
-                    <p>Jan 14, 2020</p>                    
-                </a>
-                <hr>
-                <a href="" class="post">
-                    <h6>How To Blow Through Capital At An Incredible Rate</h6>
-                    <p>Jan 14, 2020</p>                    
-                </a>
-                <hr>
-                <a href="" class="post">
-                    <h6>How To Blow Through Capital At An Incredible Rate</h6>
-                    <p>Jan 14, 2020</p>                    
-                </a>
-            </div>
-
-            <div class="categories">
-                <h4 class="title">Categories</h4>
-                <a href="" class="category">
-                    <h6>Technology</h6>
-                    <p>-</p>
-                    <p>20 posts</p>
-                </a>
-                <a href="" class="category">
-                    <h6>Technology</h6>
-                    <p>-</p>
-                    <p>20 posts</p>
-                </a>
-                <a href="" class="category">
-                    <h6>Technology</h6>
-                    <p>-</p>
-                    <p>20 posts</p>
-                </a>
-            </div>
+<!-- Article Full Page Section -->
+<div class="article-full-detail container">
+    <div class="title-text">
+        <h1>@Model.Value("articleTitle")</h1>
+        <div class="article-details">
+            <p>@Model.CreateDate.ToString("MMM dd, yyyy")</p>
+            <span class="circle-seperator"></span>
+            <p>@Model.Value("articleCategory")</p>
+            <span class="circle-seperator"></span>
+            <p>@Model.CreatorName(UserService)</p>
         </div>
     </div>
+    <div class="article-content">
+        <div class="article-image">
+            <img src="@articleImage.Url()" alt="">
+        </div>
+
+        <div class="article-text">
+            @Model.Value("articleContent")
+        </div>
+        
+        <div class="article-tags">
+            <a href="">Digitalization</a>
+            <a href="">IT</a>
+        </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="right-section">
+        <div  class="input-field">
+            <input type="text" placeholder="Type to search...">
+            <i class="bi bi-search"></i>
+        </div>
+
+        <div class="recent-posts">
+            <h4 class="title">Recent posts</h4>
+            <a href="" class="post">
+                <h6>How To Blow Through Capital At An Incredible Rate</h6>
+                <p>Jan 14, 2020</p>                    
+            </a>
+            <hr>
+            <a href="" class="post">
+                <h6>How To Blow Through Capital At An Incredible Rate</h6>
+                <p>Jan 14, 2020</p>                    
+            </a>
+            <hr>
+            <a href="" class="post">
+                <h6>How To Blow Through Capital At An Incredible Rate</h6>
+                <p>Jan 14, 2020</p>                    
+            </a>
+        </div>
+
+        <div class="categories">
+            <h4 class="title">Categories</h4>
+            <a href="" class="category">
+                <h6>Technology</h6>
+                <p>-</p>
+                <p>20 posts</p>
+            </a>
+            <a href="" class="category">
+                <h6>Technology</h6>
+                <p>-</p>
+                <p>20 posts</p>
+            </a>
+            <a href="" class="category">
+                <h6>Technology</h6>
+                <p>-</p>
+                <p>20 posts</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+@await Html.PartialAsync("_ArticleSectionSingleRow")

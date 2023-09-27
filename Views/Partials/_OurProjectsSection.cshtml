@@ -21,13 +21,13 @@
         {
             var articleImage = item.Value<MediaWithCrops>("articleImage");
             <div class="article-card-image">
-            <div class="image-container">
-                <img src="@articleImage.Url()" alt="">
-            </div>                
-            <h5>@item.Value("articleTitle")</h5>
-            <hr>
-            <button>Read More <i class="bi bi-arrow-up-right"></i></button>
-        </div>
+                <div class="image-container">
+                    <img src="@articleImage.Url()" alt="">
+                </div>                
+                <h5>@item.Value("articleTitle")</h5>
+                <hr>
+                <a href="@item.Url()">Read More <i class="bi bi-arrow-up-right"></i></a>
+            </div>
         }
     </div>
     <a href="@Model.Value("outProjectsURL")" class="button-theme">All Recent Projects <i class="bi bi-arrow-up-right"></i></a>
