@@ -1,6 +1,8 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.HomePage>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models
+
 @{
 	Layout = "Main.cshtml";
 }
@@ -21,9 +23,8 @@
         </div>        
     </div>
 </div>
-@await Html.PartialAsync("_AboutCompanySection")
 
-@await Html.PartialAsync("_ArticleSectionSingleRow")
+@await Html.PartialAsync("_AboutCompanySection")
 
 
  <!-- Services Section -->
@@ -39,3 +40,25 @@
         </div>            
     </div>
 </div> 
+
+<!-- Why choose us section -->
+<div class="choose-us-section  ">
+    <div class="container">
+        <div class="left-text">
+            <h6 class="theme-colour-orange">Why Choose Us</h6>
+            <h1>@Model.Value("whyChooseUsTitle")</h1>
+            @Html.GetBlockListHtml(Model.ChooseUsService)
+        </div>
+        <div class="right-image">
+            @{
+                var chooseUsImage = Model.Value<MediaWithCrops>("whyChooseUsImage");
+            }
+            <img src="@chooseUsImage.Url()" alt="">
+        </div>
+    </div>
+</div>
+    
+@await Html.PartialAsync("_OurProjectsSection")
+    
+
+@await Html.PartialAsync("_ArticleSectionSingleRow")

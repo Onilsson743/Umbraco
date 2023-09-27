@@ -1,27 +1,6 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @using Umbraco.Cms.Core.Models
 
-@{
-    string text = Model.Value("articleContent").ToString();
-    string shortText;
-    int maxLength = 100;
-    
-    if (text.Length <= maxLength) {
-        shortText = text;
-    }
-    
-    char[] delimiters = new char[] { ' ', '.', ',', ':', ';' };
-    int index = text.LastIndexOfAny(delimiters, maxLength - 3);
-    
-    if (index > (maxLength / 2)) {
-        shortText = text.Substring(0, index) + "...";
-    }
-    else {
-        shortText = text.Substring(0, maxLength - 3) + "...";
-    }
-}
-
-
 <a href="@Model.Url()" class=" article-card-medium">
     @{
         var articleImage = Model.Value<MediaWithCrops>("articleImage");
@@ -36,6 +15,6 @@
     <div class="description">
         <p>@Model.Value("articleCategory")</p>
         <h5>@Model.Value("articleTitle")</h5>
-        <p>@shortText</p>
+        <p>@Model.Value("articleShortText")</p>
     </div>  
 </a>
