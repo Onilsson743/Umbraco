@@ -1,4 +1,5 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+﻿@using CritoProject.ViewModels;
+@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ContactPage>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
@@ -44,12 +45,14 @@
 <!-- Contact form -->
 <div class="contact-form container">
     <h1>Leave us a message for any information.</h1>
-    <form action="">
-        <input type="text" placeholder="Name*">
+
+    @using (Html.BeginUmbracoForm("Index", "Contact", FormMethod.Post))
+    {
+        <input  type="text" placeholder="Name*">
         <input type="email" placeholder="Email*">
         <textarea name="" placeholder="Your Message*" id="" cols="30" rows="10"></textarea>
         <button class="button-theme" type="submit">Send Message <i class="bi bi-arrow-up-right"></i></button>
-    </form>
+    }
 </div>
 
 <!-- Maps -->

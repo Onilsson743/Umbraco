@@ -1,4 +1,5 @@
 using CritoProject.Context;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Umbraco.Extensions;
 
@@ -34,6 +35,7 @@ namespace CritoProject
         /// </remarks>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DataContext>(x => x.UseSqlite(_config.GetConnectionString("SqlDB")));
             services.AddUmbraco(_env, _config)
                 .AddBackOffice()
                 .AddWebsite()
@@ -41,8 +43,7 @@ namespace CritoProject
                 .AddComposers()
                 
                 .Build();
-            
-            services.AddUmbracoEFCoreContext<DataContext>("Data Source=|DataDirectory|/Umbraco.sqlite.db;Cache=Shared;Foreign Keys=True;Pooling=True", "Microsoft.Data.Sqlite");
+
         }
 
         /// <summary>
