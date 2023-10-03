@@ -9,5 +9,10 @@ namespace CritoProject.Services.Repositiories.Repos
         public ContactFormRepo(DataContext db) : base(db)
         {
         }
+
+        public override Task<ContactFormEntity> AddOneAsync(ContactFormEntity entity)
+        {
+            return base.AddOneAsync(entity);
+        }
     }
 }

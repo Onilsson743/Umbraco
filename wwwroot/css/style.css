@@ -862,6 +862,12 @@ footer .lower-section {
     line-height: 55px;
 }
 
+.contact-form .response {
+    padding: 20px;
+    background-color: rgba(90, 180, 90, 0.425);
+    border-radius: 15px;
+}
+
 .contact-form form {
     display: flex;
     flex-direction: column;
@@ -1067,4 +1073,25 @@ footer .lower-section {
 .articles-and-news-section .page-selector a:hover {
     scale: 1.15;
     background-color: #d5d5d564;
+}
+
+/* Signup Section */
+.signup-section {
+    background-color: #f0efe9;
+    height: 270px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-section .container {
+    display: flex;
+    gap: 150px;
+}
+
+.signup-section .container .signup-form input {
+    border: none;
+    padding: 10px 30px;
+    border-radius: 25px;
+    margin-right: 20px;
 }

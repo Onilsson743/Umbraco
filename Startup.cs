@@ -1,4 +1,6 @@
 using CritoProject.Context;
+using CritoProject.Services;
+using CritoProject.Services.Repositiories.Repos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Umbraco.Extensions;
@@ -36,6 +38,14 @@ namespace CritoProject
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(x => x.UseSqlite(_config.GetConnectionString("SqlDB")));
+
+            //Repos
+            services.AddScoped<ContactFormRepo>();
+
+            //Services
+            services.AddScoped<ContactFormService>();
+
+
             services.AddUmbraco(_env, _config)
                 .AddBackOffice()
                 .AddWebsite()

@@ -1,0 +1,12 @@
+﻿@using CritoProject.Controllers;
+@model CritoProject.ViewModels.ContactUsFormViewModel;
+
+
+@using (Html.BeginUmbracoForm<ContactController>(nameof(ContactController.Index)))
+{
+    <div asp-validation-summary="All"></div>
+    <input asp-for="Name" type="text" placeholder="Name*">
+    <input asp-for="Email" type="email" placeholder="Email*">
+    <input asp-for="Message" type="text" placeholder="Your Message*">
+    <button class="button-theme" type="submit">Send Message <i class="bi bi-arrow-up-right"></i></button>
+}
