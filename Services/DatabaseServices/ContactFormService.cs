@@ -1,9 +1,7 @@
-﻿using CritoProject.Context;
-using CritoProject.Models.Entities;
+﻿using CritoProject.Models.Entities;
 using CritoProject.Services.Repositiories.Repos;
 using CritoProject.ViewModels;
-using Serilog.Context;
-using Umbraco.Cms.Persistence.EFCore.Scoping;
+
 
 namespace CritoProject.Services;
 
