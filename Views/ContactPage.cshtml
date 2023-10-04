@@ -8,7 +8,7 @@
 @{
     Layout = "Main.cshtml";
     var contactForm = new CritoProject.ViewModels.ContactUsFormViewModel();
-    var testValue = HttpContextAccessor.HttpContext.Request.Query["response"];
+    var responseValue = HttpContextAccessor.HttpContext.Request.Query["response"];
 }
 
 @await Html.PartialAsync("_Breadcrumb")
@@ -49,15 +49,15 @@
 
 <!-- Contact form -->
 <div class="contact-form container">
-    @if (testValue.Count != 0)
+    @if (responseValue.Count != 0)
     {
-        <h1 class="response">@testValue</h1>
+        <h1 class="response">@responseValue</h1>
     } else
     {
         <h1>Leave us a message for any information.</h1>
     }    
     
-    @await Html.PartialAsync("_ContactForm", new ContactUsFormViewModel());
+    @await Html.PartialAsync("_ContactForm", new ContactUsFormViewModel())
     
 </div>
 

@@ -1,13 +1,16 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
-@using Umbraco.Cms.Core.Models
+﻿@using CritoProject.Controllers;
+@model CritoProject.ViewModels.SignUpViewModel
 
 <!-- Signup Section -->
 <div class="signup-section">
     <div class="container">
         <h1>Get News Updates By Signup</h1>
-        <form class="signup-form">
-            <input type="email" placeholder="username@domain.com">
-            <button class="button-theme">Subscribe <i class="bi bi-arrow-up-right"></i></button>
-        </form>
+
+        @using (Html.BeginUmbracoForm<SignupController>(nameof(SignupController.Index)))
+        {
+            <input asp-for="Email" placeholder="username@domain.com">
+            <button class="button-theme" type="submit">Subscribe <i class="bi bi-arrow-up-right"></i></button>
+        }
     </div>
 </div>
+

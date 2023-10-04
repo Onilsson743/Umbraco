@@ -1,4 +1,5 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+﻿@using CritoProject.ViewModels;
+@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ArticlesNewsPage>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
@@ -66,3 +67,6 @@
         }
     </div>
 </div>
+
+@await Html.PartialAsync("_ArticleSectionSingleRow")
+@await Html.PartialAsync("_SignupSection", new SignUpViewModel())

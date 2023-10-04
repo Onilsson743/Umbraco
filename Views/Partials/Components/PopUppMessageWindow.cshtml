@@ -1,0 +1,15 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    var responseValue = HttpContextAccessor.HttpContext.Request.Query["popUpMessage"];
+}
+
+@{
+    if (responseValue.Count != 0)
+    {
+        <div id="popup-window" class="popup-window">
+            <p>@responseValue</p>
+            <button onclick="closePopUpWindow()" class="button-theme">Close</button>
+        </div>
+    }
+}

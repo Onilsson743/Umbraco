@@ -11,5 +11,6 @@ public class DataContext : DbContext
     }
 
     public DbSet<ContactFormEntity> ContactForm { get; set; }
+    public DbSet<SignUpEntity> Subscribers { get; set; }
 
 }

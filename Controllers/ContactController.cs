@@ -26,7 +26,6 @@ public class ContactController : SurfaceController
         {
             var response = await _contactFormService.AddForm(form);
             if(response != null) {
-                ViewBag.Message = "We have recieved your message!";
                 return RedirectToCurrentUmbracoPage(QueryString.Create("response", "We have recieved your message!"));
             }
             

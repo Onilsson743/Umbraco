@@ -1,5 +1,6 @@
 using CritoProject.Context;
 using CritoProject.Services;
+using CritoProject.Services.DatabaseServices;
 using CritoProject.Services.Repositiories.Repos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -41,9 +42,11 @@ namespace CritoProject
 
             //Repos
             services.AddScoped<ContactFormRepo>();
+            services.AddScoped<SignUpRepo>();
 
             //Services
             services.AddScoped<ContactFormService>();
+            services.AddScoped<SignupService>();
 
 
             services.AddUmbraco(_env, _config)
