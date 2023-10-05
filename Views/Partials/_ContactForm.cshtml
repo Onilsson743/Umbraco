@@ -5,8 +5,14 @@
 @using (Html.BeginUmbracoForm<ContactController>(nameof(ContactController.Index)))
 {
     <div asp-validation-summary="All"></div>
-    <input asp-for="Name" type="text" placeholder="Name*">
-    <input asp-for="Email" type="email" placeholder="Email*">
-    <textarea asp-for="Message"  type="text" placeholder="Your Message*" rows="6"></textarea>
+    <input asp-for="Name" type="text" placeholder="Name*" required>
+
+
+    <input asp-for="Email" type="email" id="FormEmail" placeholder="Email*" oninput="ValidateEmail()" required>
+    <p class="text-danger d-none" id="EmailErrorP" style="text-align: start; margin-left: 35px;"><small id="EmailError"></small></p>
+
+    <textarea asp-for="Message" type="text" placeholder="Your Message*" rows="6" required></textarea>
+    
+
     <button class="button-theme" type="submit">Send Message <i class="bi bi-arrow-up-right"></i></button>
 }

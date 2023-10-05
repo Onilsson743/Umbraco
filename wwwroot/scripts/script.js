@@ -63,3 +63,20 @@ function scrollEmployeeRowToPosition(amount, id) {
 }
 
 
+function ValidateEmail() {
+    var input_value = document.getElementById("FormEmail").value;
+    var regex_email = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    var errorMessage = document.getElementById("EmailError")
+    var errorMessageP = document.getElementById("EmailErrorP")
+
+    if (regex_email.test(input_value)) {
+        errorMessage.innerHTML = ""
+        errorMessageP.classList.add("d-none")        
+    }
+    else {
+        errorMessage.innerHTML = "Please fill in a valid email (example@domain.com)"
+        errorMessageP.classList.remove("d-none")        
+    }
+}
+
+

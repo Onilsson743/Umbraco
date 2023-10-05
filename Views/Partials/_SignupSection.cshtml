@@ -8,7 +8,11 @@
 
         @using (Html.BeginUmbracoForm<SignupController>(nameof(SignupController.Index)))
         {
-            <input asp-for="Email" placeholder="username@domain.com">
+            <div style="display: flex; flex-direction: column;">
+                <input asp-for="Email" placeholder="username@domain.com" id="FormEmail" required oninput="ValidateEmail()">
+                <p class="text-danger" style="float: left;"><small id="EmailError"></small></p>
+            </div>
+            
             <button class="button-theme" type="submit">Subscribe <i class="bi bi-arrow-up-right"></i></button>
         }
     </div>
