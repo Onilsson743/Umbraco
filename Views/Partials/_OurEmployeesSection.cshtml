@@ -18,10 +18,10 @@
  <!-- Employees info section -->
 <div class="employee-info-section">
     <div class="container">
-        <h6 class="theme-colour-orange font-bold">Employees info section</h6>
+        <h6 class="theme-colour-orange font-bold">Meet Our Team</h6>
         <div class="header-text">
-            <h1 class="font-bold">Experience Team Members</h1>
-            <a class="button-theme-transparent">Browse Team <i class="bi bi-arrow-up-right"></i></a>
+            <h1 class="font-bold">@Model.Value("employeeInfoSectionTitle")</h1>
+            <a href="@Model.Value("employeeInfoSectionButtonUrl")" class="button-theme-transparent">Browse Team <i class="bi bi-arrow-up-right"></i></a>
         </div>
         <div class="employee-profiles" id="scrollable-employee-cards-div">
             	@foreach (var item in selection)
