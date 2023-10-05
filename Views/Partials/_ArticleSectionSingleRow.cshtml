@@ -8,7 +8,7 @@
     .OrderBy(x => x.CreateDate)
     .Take(9);
 
-    double scollAmount = (selection.Count()) / 3;
+    double scrollAmount = (selection.Count()) / 3d;
 }
 
 <div class="article-news-section container">
@@ -28,14 +28,19 @@
 
     </div>
     <div class="scroll-bar">
-        @for (int i = 0; i < (Math.Ceiling(scollAmount)); i++)
+      
+        @if (scrollAmount > 1)
         {
-            
-            string idName = $"articleBarScrollTo{i}";
-            int scrollTo = i * 1290;
+            @for (int i = 1; i <= (Math.Ceiling(scrollAmount)); i++)
+            {
 
-            <div onclick="scrollToPosition(@scrollTo, @idName)" id="@idName" class="round-scroll-item"></div>
+                string idName = $"articleBarScrollTo{@i}";
+                int scrollTo = (i - 1) * 1290;
+
+                <div onclick="scrollArticleRowToPosition(@scrollTo, @i)" id="@idName" class="round-scroll-item"></div>
+            }
         }
+        
     </div>
     
 </div>

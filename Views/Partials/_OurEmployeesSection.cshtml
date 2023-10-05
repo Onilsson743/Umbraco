@@ -1,0 +1,102 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+
+@{
+    var selection = Umbraco.Content(Guid.Parse("1e8442e7-09d3-4268-bd86-6a4a55c9347c"))
+    .ChildrenOfType("employeeProfilePage")
+    .Where(x => x.IsVisible())
+    .OrderBy(x => x.Name);
+
+    double scrollAmount = (selection.Count()) / 4d;
+}
+
+
+
+
+
+
+ <!-- Employees info section -->
+<div class="employee-info-section">
+    <div class="container">
+        <h6 class="theme-colour-orange font-bold">Employees info section</h6>
+        <div class="header-text">
+            <h1 class="font-bold">Experience Team Members</h1>
+            <a class="button-theme-transparent">Browse Team <i class="bi bi-arrow-up-right"></i></a>
+        </div>
+        <div class="employee-profiles" id="scrollable-employee-cards-div">
+            	@foreach (var item in selection)
+            	{
+                    @Html.Partial("Components/EmployeeProfileCard", item)
+            	}
+        </div>
+        <div class="scroll-bar">
+            @if (scrollAmount > 1)
+            {
+                @for (int i = 1; i <= (Math.Ceiling(scrollAmount)); i++)
+                {
+
+                    string idName = $"employeesBarScrollTo{@i}";
+                    int scrollTo = (i - 1) * 1290;
+
+                    <div onclick="scrollEmployeeRowToPosition(@scrollTo, @i)" id="@idName" class="round-scroll-item"></div>
+                }
+            }
+        </div>
+    </div>
+    <!-- Reviews section -->
+    <div class="reviews-section">
+        <div class="container">
+            <p class="theme-colour-orange font-bold">Testimonial</p>
+            <h1 class="font-bold">What Our Client Says</h1>
+
+            <div class="review-cards">
+                <div class="review-card">
+                    <p class="theme-colour-orange">*****</p>
+                    <p class="review-text">"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium libero, ad dignissimos velit qui, dolorum obcaecati cum saepe nesciunt nemo eligendi numquam voluptate"</p>
+                    
+                    <div class="person-info">
+                        <div class="profile-image">
+                            <img src="images/vince-veras-AJIqZDAUD7A-unsplash.jpg" alt="">
+                        </div>
+                        <div class="profile-info">
+                            <h4>Cassandra Warren</h4>
+                            <h6 class="theme-colour-orange">Business Manager, Dorfus</h6>
+                        </div>
+                    </div>
+                </div>  
+
+                <div class="review-card">
+                    <p class="theme-colour-orange">*****</p>
+                    <p class="review-text">"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium libero, ad dignissimos velit qui, dolorum obcaecati cum saepe nesciunt nemo eligendi numquam voluptate"</p>
+                    
+                    <div class="person-info">
+                        <div class="profile-image">
+                            <img src="images/christina-wocintechchat-com-PlikkWB79qs-unsplash.jpg" alt="">
+                        </div>
+                        <div class="profile-info">
+                            <h4>Amanda Tulling</h4>
+                            <h6 class="theme-colour-orange">Senior Developer, Square</h6>
+                        </div>
+                    </div>
+                </div>  
+
+                <div class="review-card">
+                    <p class="theme-colour-orange">*****</p>
+                    <p class="review-text">"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium libero, ad dignissimos velit qui, dolorum obcaecati cum saepe nesciunt nemo eligendi numquam voluptate"</p>
+                    
+                    <div class="person-info">
+                        <div class="profile-image">
+                            <img src="images/joseph-gonzalez-iFgRcqHznqg-unsplash.jpg" alt="">
+                        </div>
+                        <div class="profile-info">
+                            <h4>Jack McDogglas</h4>
+                            <h6 class="theme-colour-orange">Key Account Manager, Gobona</h6>
+                        </div>
+                    </div>
+                </div>                      
+            </div>
+            <a class="button-theme">All Reviews <i class="bi bi-arrow-up-right"></i></a>
+        </div>
+        
+    </div>
+</div>
