@@ -1,0 +1,28 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models
+@{
+    var content = (ContentModels.CompanyReview)Model.Content;
+    var starRating = "";
+    int stars = (int)content.Value("companyReviewStarsRating");
+    
+    var profileImage = content.Value<MediaWithCrops>("companyReviewProfileImage");
+}
+
+
+<div class="review-card">
+    <p class="theme-colour-orange">@for(int i = 0; i < stars; i++){
+        <i class="bi bi-star-fill"></i>
+    }</p> 
+    <p class="review-text">"@content.Value("companyReviewTextContent")"</p>
+    
+    <div class="person-info">
+        <div class="profile-image">
+            <img src="@profileImage.Url()" alt="">
+        </div>
+        <div class="profile-info">
+            <h4>@content.Value("companyReviewProfileName")</h4>
+            <h6 class="theme-colour-orange">@content.Value("companyReviewProfileWorkPosition"), @content.Value("companyReviewProfileCompany")</h6>
+        </div>
+    </div>
+</div>  

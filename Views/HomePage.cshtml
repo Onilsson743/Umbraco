@@ -60,9 +60,25 @@
 </div>
     
 @await Html.PartialAsync("_OurProjectsSection")
-
-@await Html.PartialAsync("_OurEmployeesSection")
     
+<div class="employee-info-section">
+    
+    @await Html.PartialAsync("_OurEmployeesSection")
+    
+    <!-- Reviews section -->
+    <div class="reviews-section">
+        <div class="container">
+            <p class="theme-colour-orange font-bold">Testimonial</p>
+            <h1 class="font-bold">@Model.Value("reviewsSectionTitle")</h1>
+            
+            <div class="review-cards">              
+                @Html.GetBlockListHtml(Model.CompanyReview)                
+            </div>
+            <a href="@Model.Value("reviewsSectionButtonUrl")" class="button-theme">All Reviews <i class="bi bi-arrow-up-right"></i></a>
+        </div>
+        
+    </div>
+</div>
 
 @await Html.PartialAsync("_ArticleSectionSingleRow")
 

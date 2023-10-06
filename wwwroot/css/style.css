@@ -747,27 +747,27 @@ a {
     padding: 100px 80px;
     margin: 100px 7%;
  }
- .employee-info-section .reviews-section .container .review-cards  {
+.employee-info-section .reviews-section .container .review-cards .umb-block-list {
     display: flex;
     justify-content: space-between;
 }
-.employee-info-section .reviews-section .container .review-cards .review-card {
+.employee-info-section .reviews-section .container .review-cards .umb-block-list .review-card {
     text-align: left;
     width: 420px;
     height: 400px;
     padding: 30px;
 }
-.employee-info-section .reviews-section .container .review-cards .review-text {
+.employee-info-section .reviews-section .container .review-cards .umb-block-list .review-text {
     line-height: 34px;
     font-size: 18px;
 }
 
-.employee-info-section .reviews-section .container .review-cards .person-info {
+.employee-info-section .reviews-section .container .review-cards .umb-block-list .person-info {
     display: flex;
     gap: 20px;
     align-items: center;
 }
-.employee-info-section .reviews-section .container .review-cards .person-info .profile-image{
+.employee-info-section .reviews-section .container .review-cards .umb-block-list .person-info .profile-image {
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -775,7 +775,7 @@ a {
     border: 2px solid #ffffff;
     outline: 1px solid rgb(207, 207, 207);
 }
-.employee-info-section .reviews-section .container .review-cards .person-info .profile-image img {
+.employee-info-section .reviews-section .container .review-cards .umb-block-list .person-info .profile-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
