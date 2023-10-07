@@ -834,6 +834,18 @@ footer .lower-section {
     display: flex;
     justify-content: space-between;
 }
+footer .lower-section .social-media-links  {
+    display: flex;
+    gap: 10px;
+}
+footer .lower-section .social-media-links a{
+    color: white;
+    transition: 0.2 ease-in-out;
+}
+footer .lower-section .social-media-links a:hover {
+    scale: 1.1;
+}
+
 
 
 /* Articles and news section */

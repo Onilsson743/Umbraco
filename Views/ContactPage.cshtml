@@ -21,8 +21,8 @@
             </div>
             <div class="text">
                 <h5>Visit us</h5>
-                <p>Sveavägen 31</p>
-                <p>111 34 STOCKHOLM</p>
+                <p>@Model.Value("contactInfoAdress")</p>
+                <p>@Model.Value("contactInfoPostalCode") @Model.Value("contactInfoCity")</p>
             </div>
         </div>
         <div class="info-box">
@@ -31,8 +31,17 @@
             </div>
             <div class="text">
                 <h5>Call us</h5>
-                <p>+46 (8) 121 470 50</p>
-                <p>+46 (8) 121 470 51</p>
+                @{
+                    if (Model.Value<string[]>("contactInfoPhonenumber").Length > 0)
+                    {
+                        
+                        @foreach (var item in Model.Value<string[]>("contactInfoPhonenumber"))
+                        {
+                            <p>@item</p>
+                        }
+                        
+                    }
+                }
             </div>
         </div>
         <div class="info-box">
@@ -41,8 +50,17 @@
             </div>
             <div class="text">
                 <h5>Email us</h5>
-                <p>info@crito.com</p>
-                <p>support@crito.com</p>
+                @{
+                    if (Model.Value<string[]>("contactInfoEmail").Length > 0)
+                    {
+                        
+                        @foreach (var item in Model.Value<string[]>("contactInfoEmail"))
+                        {
+                            <p>@item</p>
+                        }
+                        
+                    }
+                }
             </div>
         </div>
     </div>
